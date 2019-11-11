@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "158606903089",
+    "firebase_url": "https://swipper-49a0e.firebaseio.com",
+    "project_id": "swipper-49a0e",
+    "storage_bucket": "swipper-49a0e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:158606903089:android:ed09a15a3315fe064ed210",
+        "android_client_info": {
+          "package_name": "com.example.swipper"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "158606903089-7bco9c5s0lm223s3kk8l784seueqh5d6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.swipper",
+            "certificate_hash": "ddd3ec8f537bfedc6b1815f69e245b3f1a3a4239"
+          }
+        },
+        {
+          "client_id": "158606903089-jn7rdk5cgrn6pe96rhv7dpji9c04r0e0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCemRWjfjWsoq8fImvlkIEg4sfPe6ZL5Js"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "158606903089-jn7rdk5cgrn6pe96rhv7dpji9c04r0e0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

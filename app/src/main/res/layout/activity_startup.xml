@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".onboardingscreen.StartupActivity">
+
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="@dimen/startup_logo_width"
+        android:layout_height="@dimen/startup_logo_height"
+        android:text="I Love Outlook! Do you?"
+        android:textColor="@android:color/holo_red_dark"
+        android:textSize="50sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_margin="@dimen/startup_logo_margin"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/login_btn"
+        style="@style/StandardButton"
+        android:layout_width="@dimen/standard_button_width"
+        android:layout_height="@dimen/standard_button_height"
+        android:text="@string/startup_button_login" />
+
+    <Button
+        android:id="@+id/signup_btn"
+        style="@style/StandardButton"
+        android:layout_width="@dimen/standard_button_width"
+        android:layout_height="@dimen/standard_button_height"
+        android:text="@string/startup_signup_text" />
+</LinearLayout>
