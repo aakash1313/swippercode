@@ -8,5 +8,6 @@
     <color name="grey">#cccccc</color>
     <color name="blue">#9eaaff</color>
     <color name="green">#13af0c</color>
+    <color name="shadow_color">#cadddddd</color>
 
 </resources>

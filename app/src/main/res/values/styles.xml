@@ -8,6 +8,11 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="AppTheme.NoActionBarr">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
     <style name="StandardButton">
         <item name="android:textColor">@color/white</item>
         <item name="android:background">@drawable/standard_button_rounded</item>
@@ -16,6 +21,10 @@
         <item name="android:layout_margin">@dimen/standard_button_margin</item>
         <item name="android:foreground">?attr/selectableItemBackground</item>
         <item name="android:clickable">true</item>
+    </style>
+
+    <style name="StandardButtonGrey" parent="StandardButton">
+        <item name="android:background">@drawable/standard_button_rounded_grey</item>
     </style>
 
 </resources>

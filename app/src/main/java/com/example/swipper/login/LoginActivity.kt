@@ -2,12 +2,11 @@ package com.example.swipper.login
 
 import android.content.Context
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import com.example.swipper.R
 import com.example.swipper.SwipperBaseActivity
-import com.example.swipper.dashboard.MainActivity
+import com.example.swipper.dashboard.DashboardActivity
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_login.*
 
@@ -17,7 +16,7 @@ class LoginActivity : SwipperBaseActivity() {
     private val fireAuthStateListener = FirebaseAuth.AuthStateListener {
         val user = firebaseAuth.currentUser
         if(user != null){
-            startActivity(MainActivity.newIntent(this))
+            startActivity(DashboardActivity.newIntent(this))
             finish()
         }
     }

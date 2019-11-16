@@ -2,12 +2,11 @@ package com.example.swipper.signup
 
 import android.content.Context
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import com.example.swipper.R
 import com.example.swipper.SwipperBaseActivity
-import com.example.swipper.dashboard.MainActivity
+import com.example.swipper.dashboard.DashboardActivity
 import com.example.swipper.database.DATA_USERS
 import com.example.swipper.database.user.User
 import com.google.firebase.auth.FirebaseAuth
@@ -21,7 +20,7 @@ class SignUpActivity : SwipperBaseActivity() {
     private val firebaseAuthListener = FirebaseAuth.AuthStateListener {
         val user = firebaseAuth.currentUser
         if(user != null){
-            startActivity(MainActivity.newIntent(this))
+            startActivity(DashboardActivity.newIntent(this))
             finish()
         }
     }
