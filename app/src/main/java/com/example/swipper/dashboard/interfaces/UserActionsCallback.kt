@@ -7,4 +7,6 @@ interface UserActionsCallback {
     fun onSignOut()
     fun getUserId(): String
     fun getUserDatabase(): DatabaseReference
+    fun profileComplete()
+    fun startActivityForPhoto()
 }

@@ -5,6 +5,7 @@ data class User (
     val name: String? = "",
     val email: String? = "",
     val gender: String? = "",
+    var age: String?="",
     val preferredGender: String? = "",
     val imageUrl: String? = ""
 )
