@@ -19,4 +19,5 @@
     <string name="sign_out_btn">Sign Out</string>
     <string name="apply_btn">Apply</string>
     <string name="error_profile_incomplete">Please complete your profile</string>
+    <string name="no_available_users">No Available Users</string>
 </resources>
