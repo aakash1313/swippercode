@@ -7,8 +7,15 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.swipper.R
 import com.example.swipper.dashboard.interfaces.UserActionsCallback
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 
 class MatchesFragment : Fragment() {
+
+
+    private lateinit var userId : String
+    private lateinit var userDatabase: DatabaseReference
+    private lateinit var chatDatabase: DatabaseReference
 
 
     private var callback: UserActionsCallback?= null
