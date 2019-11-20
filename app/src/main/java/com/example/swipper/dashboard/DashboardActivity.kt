@@ -15,6 +15,7 @@ import com.example.swipper.dashboard.fragment.MatchesFragment
 import com.example.swipper.dashboard.fragment.ProfileFragment
 import com.example.swipper.dashboard.fragment.SwipperFragment
 import com.example.swipper.dashboard.interfaces.UserActionsCallback
+import com.example.swipper.database.DATA_CHATS
 import com.example.swipper.database.DATA_USERS
 import com.example.swipper.onboardingscreen.StartupActivity
 import com.google.android.material.tabs.TabLayout
@@ -33,6 +34,7 @@ class DashboardActivity : SwipperBaseActivity(), UserActionsCallback {
     private val firebaseAuth = FirebaseAuth.getInstance()
     private val userId = firebaseAuth.currentUser?.uid
     private lateinit var userDetabase: DatabaseReference
+    private lateinit var chatDatabase: DatabaseReference
 
     private var profileFragment: ProfileFragment? = null
     private var swipeFragment: SwipperFragment? = null
@@ -51,6 +53,8 @@ class DashboardActivity : SwipperBaseActivity(), UserActionsCallback {
         if(userId.isNullOrEmpty()){
             onSignOut()
         }
+
+        chatDatabase = FirebaseDatabase.getInstance().reference.child(DATA_CHATS)
 
         userDetabase = FirebaseDatabase.getInstance().reference.child(DATA_USERS)
 
@@ -132,6 +136,8 @@ class DashboardActivity : SwipperBaseActivity(), UserActionsCallback {
     override fun profileComplete() {
         swipeTab?.select()
     }
+
+    override fun getChatDatabase(): DatabaseReference = chatDatabase
 
     override fun startActivityForPhoto() {
         val intent = Intent(Intent.ACTION_PICK)

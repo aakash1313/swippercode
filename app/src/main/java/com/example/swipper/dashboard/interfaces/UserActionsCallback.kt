@@ -7,6 +7,7 @@ interface UserActionsCallback {
     fun onSignOut()
     fun getUserId(): String
     fun getUserDatabase(): DatabaseReference
+    fun getChatDatabase(): DatabaseReference
     fun profileComplete()
     fun startActivityForPhoto()
 }

@@ -10,10 +10,7 @@ import androidx.fragment.app.Fragment
 import com.example.swipper.R
 import com.example.swipper.dashboard.CardsAdapter
 import com.example.swipper.dashboard.interfaces.UserActionsCallback
-import com.example.swipper.database.DATA_GENDER
-import com.example.swipper.database.DATA_MATCHES
-import com.example.swipper.database.DATA_SWIPES_LEFT
-import com.example.swipper.database.DATA_SWIPES_RIGHT
+import com.example.swipper.database.*
 import com.example.swipper.database.user.User
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -28,15 +25,19 @@ class SwipperFragment : Fragment() {
     private var callback: UserActionsCallback?= null
     private lateinit var userId: String
     private lateinit var userDatabase: DatabaseReference
+    private lateinit var chatDatabase: DatabaseReference
     private var cardsAdapter : ArrayAdapter<User>?= null
     private var rowItems = ArrayList<User>()
     private var preferredGender: String ? = null
+    private var username: String?= null
+    private var imageUrl: String?= null
 
 
     fun setCallback(callback : UserActionsCallback){
         this.callback = callback
         userId = callback.getUserId()
         userDatabase = callback.getUserDatabase()
+        chatDatabase = callback.getChatDatabase()
     }
 
 
@@ -59,6 +60,8 @@ class SwipperFragment : Fragment() {
             override fun onDataChange(p0: DataSnapshot) {
                 val user = p0.getValue(User:: class.java)
                 preferredGender = user?.preferredGender
+                username = user?.name
+                imageUrl = user?.imageUrl
                 populateItems()
 
             }
@@ -91,9 +94,26 @@ class SwipperFragment : Fragment() {
                             if(p0.hasChild(selectedUserId)){
                                 Toast.makeText(context, "Match!", Toast.LENGTH_SHORT).show()
 
-                                userDatabase.child(userId).child(DATA_SWIPES_RIGHT).child(selectedUserId).removeValue()
-                                userDatabase.child(userId).child(DATA_MATCHES).child(selectedUserId).setValue(true)
-                                userDatabase.child(selectedUserId).child(DATA_MATCHES).child(userId).setValue(true)
+                                val chatKey = chatDatabase.push().key
+
+                                if(!chatKey.isNullOrEmpty()) {
+
+
+                                    userDatabase.child(userId).child(DATA_SWIPES_RIGHT)
+                                        .child(selectedUserId).removeValue()
+                                    userDatabase.child(userId).child(DATA_MATCHES)
+                                        .child(selectedUserId).setValue(chatKey)
+                                    userDatabase.child(selectedUserId).child(DATA_MATCHES)
+                                        .child(userId).setValue(chatKey)
+
+                                    chatDatabase.child(chatKey).child(userId).child(DATA_NAME)
+                                        .setValue(username)
+                                    chatDatabase.child(chatKey).child(userId).child(DATA_IMAGE_URL).setValue(imageUrl)
+
+                                    chatDatabase.child(chatKey).child(selectedUserId).child(DATA_NAME)
+                                        .setValue(selectedUser?.name)
+                                    chatDatabase.child(chatKey).child(selectedUserId).child(DATA_IMAGE_URL).setValue(selectedUser?.imageUrl)
+                                }
                             }else {
                                 userDatabase.child(selectedUserId).child(DATA_SWIPES_RIGHT).child(userId).setValue(true)
                             }
