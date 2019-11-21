@@ -27,4 +27,17 @@
         <item name="android:background">@drawable/standard_button_rounded_grey</item>
     </style>
 
+    <style name="SendButtonStyle">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:background"></item>
+    </style>
+
+    <style name="ChatBubble">
+        <item name="android:textSize">@dimen/chat_text_size</item>
+        <item name="android:minHeight">@dimen/chat_standard_size</item>
+        <item name="android:maxWidth">@dimen/chat_max_size</item>
+
+    </style>
+
 </resources>

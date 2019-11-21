@@ -20,4 +20,6 @@
     <string name="apply_btn">Apply</string>
     <string name="error_profile_incomplete">Please complete your profile</string>
     <string name="no_available_users">No Available Users</string>
+    <string name="send_button_text">Send</string>
+    <string name="hint_message">Message</string>
 </resources>
